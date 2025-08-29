@@ -23,7 +23,7 @@
 
         @foreach($filters as $key => $label)
             <a
-                href="{{ route('books.index', ['filter' => $key, 'title' => request('title')]) }}"
+                href="{{ route('books.index', ['page' => 1, 'filter' => $key, 'title' => request('title')]) }}"
                 @class(['filter-item', 'filter-item-active' => ($key === '' && !request('filter') || request('filter') === $key )])
             >{{$label}}</a>
         @endforeach
@@ -59,4 +59,8 @@
             </li>
         @endforelse
     </ul>
+
+    <div class="mt-6 w-3xl">
+        {{$books->links()}}
+    </div>
 @endsection
