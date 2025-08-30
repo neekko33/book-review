@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="mb-4">
+    <div class="mb-4 w-2xl">
         <h1 class="sticky top-0 mb-2 text-2xl">{{ $book->title }}</h1>
 
         <div class="book-info">
@@ -17,8 +17,14 @@
         </div>
     </div>
 
+    <div class="mb-4 w-2xl">
+        <a href="{{route('books.reviews.create', $book)}}" class="reset-link">Add a Review!</a>
+    </div>
+
     <div class="w-2xl">
-        <h2 class="mb-4 text-xl font-semibold">Reviews</h2>
+        <div class="flex justify-between items-center">
+            <h2 class="mb-4 text-xl font-semibold">Reviews</h2>
+        </div>
         <ul>
             @forelse ($book->reviews as $review)
                 <li class="book-item mb-4">
