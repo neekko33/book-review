@@ -16,7 +16,7 @@ class ReviewController extends Controller
     {
         $data = $request->validate([
             'rating' => 'required|integer|min:1|max:5',
-            'review' => 'required|min:15',
+            'review' => 'required|min:10|max:1000',
         ]);
 
         $book->reviews()->create($data);
